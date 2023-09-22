@@ -22,11 +22,12 @@ class Logger {
       levels: {
         fatal: 0,
         error: 1,
-        warn: 2,
-        info: 3,
-        task: 4,
-        debug: 5,
-        trace: 6,
+        task_error: 2,
+        warn: 3,
+        info: 4,
+        task: 5,
+        debug: 6,
+        trace: 7,
       },
       colors: {
         fatal: "red",
@@ -36,13 +37,14 @@ class Logger {
         info: "green",
         debug: "blue",
         trace: "magenta",
+        task_error: "red"
       },
     };
 
     addColors(customLevels.colors);
 
     const chiaRoot = getChiaRoot();
-    const logDir = `${chiaRoot}/core-registry/logs`;
+    const logDir = `${chiaRoot}/core-registry/logs/${projectName}`;
 
     if (!fs.existsSync(logDir)) {
       fs.mkdirSync(logDir, { recursive: true });
@@ -71,16 +73,16 @@ class Logger {
       ),
       transports: [
         new transports.File({
-          filename: `${logDir}/${projectName}-error.log`,
+          filename: `${logDir}/error.log`,
           level: "error",
           format: sharedFileFormat,
         }),
         new transports.File({
-          filename: `${logDir}/${projectName}-combined.log`,
+          filename: `${logDir}/combined.log`,
           format: sharedFileFormat,
         }),
         new DailyRotateFile({
-          filename: `${logDir}/${projectName}-application-%DATE%.log`,
+          filename: `${logDir}/application-%DATE%.log`,
           datePattern: "YYYY-MM-DD",
           zippedArchive: true,
           maxSize: "20m",
@@ -100,6 +102,11 @@ class Logger {
         ),
       })
     );
+
+    // Delegate logging methods to the internal logger instance
+    ["info", "warn", "error", "debug", "trace", "fatal", "task_error"].forEach((level) => {
+      this[level] = (...args) => this.logger[level](...args);
+    });
   }
 }
 

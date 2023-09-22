@@ -3,7 +3,7 @@
 example usage
 
 ```javascript
-const Logger = require('core-registry-logger');
+const Logger = require('@chia-carbon/core-registry-logger');
 const logger = new Logger({
   projectName: 'tokenization-engine',
   logLevel: 'info',

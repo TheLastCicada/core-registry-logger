@@ -21,8 +21,6 @@ jobs:
       - name: Checkout current branch
         uses: actions/checkout@v3
         with:
-          # Need PACKAGE_ADMIN_PAT token so when the tag is created, the tag automation runs
-          token: ${{ secrets.PACKAGE_ADMIN_PAT }}
           fetch-depth: 0
 
       - name: Setup Node 18.x
@@ -53,10 +51,10 @@ jobs:
             changes=$(npx conventional-changelog-cli -r 1 | tail -n +2)
             git add CHANGELOG.md
             git commit -m "chore: Updating changelog for $version"
-            git tag $version -m "Release $version  $changes"
+            git tag $version -m "$changes"
             git push origin $version
             git push origin main
-            gh release create $version --verify-tag --notes "Release $version  $changes"
+            gh release create $version --verify-tag --notes "$changes"
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
             npm publish --access public
           fi
