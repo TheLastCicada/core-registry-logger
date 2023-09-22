@@ -42,7 +42,7 @@ class Logger {
     addColors(customLevels.colors);
 
     const chiaRoot = getChiaRoot();
-    const logDir = `${chiaRoot}/core-registry/logs/${projectName}`;
+    const logDir = `${chiaRoot}/core-registry/logs`;
 
     if (!fs.existsSync(logDir)) {
       fs.mkdirSync(logDir, { recursive: true });
@@ -71,16 +71,16 @@ class Logger {
       ),
       transports: [
         new transports.File({
-          filename: `${logDir}/error.log`,
+          filename: `${logDir}/${projectName}-error.log`,
           level: "error",
           format: sharedFileFormat,
         }),
         new transports.File({
-          filename: `${logDir}/combined.log`,
+          filename: `${logDir}/${projectName}-combined.log`,
           format: sharedFileFormat,
         }),
         new DailyRotateFile({
-          filename: `${logDir}/application-%DATE%.log`,
+          filename: `${logDir}/${projectName}-application-%DATE%.log`,
           datePattern: "YYYY-MM-DD",
           zippedArchive: true,
           maxSize: "20m",
