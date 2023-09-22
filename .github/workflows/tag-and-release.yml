@@ -56,7 +56,7 @@ jobs:
             git tag $version -m "Release $version  $changes"
             git push origin $version
             git push origin main
-            gh release create --verify-tag --notes-from-tag $version
+            gh release create $version --verify-tag --notes "Release $version  $changes"
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
             npm publish --access public
           fi
