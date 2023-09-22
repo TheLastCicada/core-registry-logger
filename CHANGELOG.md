@@ -1,3 +1,13 @@
+## [1.0.5](https://github.com/Chia-Network/core-registry-logger/compare/1.0.3...1.0.5) (2023-09-22)
+
+
+### Features
+
+* add task_error log level ([4e4de33](https://github.com/Chia-Network/core-registry-logger/commit/4e4de33f4bbd0f7a6b24dd1f28ab18d2b2aafda0))
+* Delegate logging methods to the internal logger instance ([e7c3198](https://github.com/Chia-Network/core-registry-logger/commit/e7c31981c249d442dde4212d0979ded41671b27f))
+
+
+
 ## [1.0.3](https://github.com/Chia-Network/core-registry-logger/compare/1.0.2...1.0.3) (2023-09-22)
 
 
