@@ -1,3 +1,7 @@
+## [1.0.3](https://github.com/Chia-Network/core-registry-logger/compare/1.0.2...1.0.3) (2023-09-22)
+
+
+
 ## [1.0.2](https://github.com/Chia-Network/core-registry-logger/compare/1.0.1...1.0.2) (2023-09-22)
 
 
