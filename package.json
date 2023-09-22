@@ -1,16 +1,30 @@
 {
-  "name": "core-registry-logger",
+  "name": "@chia-carbon/core-registry-logger",
   "version": "1.0.0",
   "description": "Custom logger for core registry projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Michael Taylor",
-  "license": "ISC",
+  "author": "Chia Network",
+  "email": "hello@chia.net",
+  "url": "https://www.chia.net/",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chia-Network/core-registry-logger.git"
+  },
+  "bugs":{
+    "url": "https://github.com/Chia-Network/core-registry-logger/issues"
+  },
   "dependencies": {
     "chia-root-resolver": "^1.0.0",
     "winston": "^3.10.0",
     "winston-daily-rotate-file": "^4.7.1"
-  }
+  },
+  "contributors": [
+    "Michael.Taylor <mtaylor@michaeltaylor3d.com>",
+    "Chris Marslender <chrismarslender@gmail.com>",
+    "Zach Brown <zachary.g.brown@gmail.com>"
+  ]
 }
