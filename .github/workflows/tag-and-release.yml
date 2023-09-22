@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   tag-release-publish:
-    name: Changelog and Tag
+    name: Changelog, Tag, Release, and Publish
     runs-on: ubuntu-latest
     steps:
       - name: Clean workspace
@@ -21,6 +21,8 @@ jobs:
       - name: Checkout current branch
         uses: actions/checkout@v3
         with:
+          # Need PACKAGE_ADMIN_PAT token so when the tag is created, the tag automation runs
+          token: ${{ secrets.PACKAGE_ADMIN_PAT }}
           fetch-depth: 0
 
       - name: Setup Node 18.x
