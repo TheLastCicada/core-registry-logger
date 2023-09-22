@@ -42,7 +42,7 @@ class Logger {
     addColors(customLevels.colors);
 
     const chiaRoot = getChiaRoot();
-    const logDir = `${chiaRoot}/core-registry/logs`;
+    const logDir = `${chiaRoot}/core-registry/logs/${projectName}`;
 
     if (!fs.existsSync(logDir)) {
       fs.mkdirSync(logDir, { recursive: true });
@@ -71,16 +71,16 @@ class Logger {
       ),
       transports: [
         new transports.File({
-          filename: `${logDir}/${projectName}-error.log`,
+          filename: `${logDir}/error.log`,
           level: "error",
           format: sharedFileFormat,
         }),
         new transports.File({
-          filename: `${logDir}/${projectName}-combined.log`,
+          filename: `${logDir}/combined.log`,
           format: sharedFileFormat,
         }),
         new DailyRotateFile({
-          filename: `${logDir}/${projectName}-application-%DATE%.log`,
+          filename: `${logDir}/application-%DATE%.log`,
           datePattern: "YYYY-MM-DD",
           zippedArchive: true,
           maxSize: "20m",
@@ -100,6 +100,11 @@ class Logger {
         ),
       })
     );
+
+    // Delegate logging methods to the internal logger instance
+    ["info", "warn", "error", "debug", "trace", "fatal"].forEach((level) => {
+      this[level] = (...args) => this.logger[level](...args);
+    });
   }
 }
 
