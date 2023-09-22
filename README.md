@@ -1,5 +1,4 @@
-# node-template
-Template repo for NodeJS-based projects
+# Core Registry Logger
 
 example usage
 
