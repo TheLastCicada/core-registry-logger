@@ -1,3 +1,17 @@
+## [1.0.8](https://github.com/Chia-Network/core-registry-logger/compare/1.0.7...1.0.8) (2023-09-22)
+
+
+### Bug Fixes
+
+* add task level to delegated fns ([875298a](https://github.com/Chia-Network/core-registry-logger/commit/875298a356bfd71e2daa02c0aa3055724209b268))
+
+
+### Features
+
+* make delegated functions generic ([10dd36a](https://github.com/Chia-Network/core-registry-logger/commit/10dd36a78dca9904a672da5a2b1b5dda0d738508))
+
+
+
 ## [1.0.7](https://github.com/Chia-Network/core-registry-logger/compare/1.0.6...1.0.7) (2023-09-22)
 
 
