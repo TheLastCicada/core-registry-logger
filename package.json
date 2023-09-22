@@ -8,7 +8,7 @@
   },
   "author": "Chia Network",
   "email": "hello@chia.net",
-  "url": "https://www.chia.net/",
+  "homepage": "https://www.chia.net/",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
