@@ -37,7 +37,7 @@ class Logger {
         info: "green",
         debug: "blue",
         trace: "magenta",
-        task_error: "red"
+        task_error: "red",
       },
     };
 
@@ -104,7 +104,7 @@ class Logger {
     );
 
     // Delegate logging methods to the internal logger instance
-    ["info", "warn", "error", "debug", "trace", "fatal", "task_error"].forEach((level) => {
+    Object.keys(customLevels.levels).forEach((level) => {
       this[level] = (...args) => this.logger[level](...args);
     });
   }
