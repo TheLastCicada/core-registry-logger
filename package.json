@@ -1,0 +1,16 @@
+{
+  "name": "core-registry-logger",
+  "version": "1.0.0",
+  "description": "Custom logger for core registry projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Taylor",
+  "license": "ISC",
+  "dependencies": {
+    "chia-root-resolver": "^1.0.0",
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
